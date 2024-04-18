@@ -1,0 +1,93 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'poppins', sans-serif;
+}
+
+body {
+  background-color: rgb(0, 0, 255);
+}
+
+#span1 {
+  height: 96.07999511718748664179656771011650562286376953125vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5px;
+}
+
+body h2 {
+  color: white;
+}
+
+main {
+  background-color: white;
+  padding: 10px;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 700px;
+  min-height: 350px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 10px;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.spnQtd {
+  text-align: end;
+  font-size: 16px;
+}
+
+.question {
+    font-size: 25px;
+}
+
+.answers {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+button {
+  width: 100%;
+  text-align: start;
+  padding: 15px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: #008CCC;
+  color: white;
+  font-size: 16px;
+}
+
+.finish {
+  display: none;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.finish span {
+  text-align: center;
+  font-size: 33px;
+}
+
+.finish button {
+  text-align: center;
+  padding: 20px;
+}
+
+footer {
+  color: white;
+}

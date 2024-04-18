@@ -13,7 +13,7 @@
 
 #main {
     flex-direction: column;
-    background-color: rgb(83, 23, 223);
+    background-color: white;
     padding: 5px;
     width: 700px;
     height: 350px;
@@ -27,7 +27,8 @@
 }
 .ButtonMain {
     font-size: 35px;
-    background-color: rgb(185, 185, 230);
+    background-color: #008CCC;
+    color: white;
     margin: 5px;
     padding: 20px;
     width: 400px;
