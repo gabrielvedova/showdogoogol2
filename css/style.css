@@ -1,11 +1,17 @@
-﻿body {
+﻿@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+* {
+    font-family: "Inter", sans-serif;
+}
+
+body {
     align-items: center;
     text-align: center;
     background-color: #1C2D8C;
 }
 
 .DivMain {
-    max-width: 461px;
+    max-width: 600px;
     min-width: 320px;
     padding: 8px 14px;
     gap: 10px;
@@ -18,10 +24,6 @@
 }
 
 .ButtonMain {
-    /* botao placar */
-
-/* Auto layout */
-
     font-size: 35px;
     text-decoration: dashed;
     color: black;
