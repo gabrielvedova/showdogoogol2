@@ -3,8 +3,10 @@
 ## Front-End
 
 - Tela Inicial✅
-- Créditos +-
+- Créditos ✅
 - Sobre✅
+
+OBS: PRECISO DO BACK
 - NomeUsuário +-
 - Perguntas
 - Placar
