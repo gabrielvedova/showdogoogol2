@@ -5,6 +5,26 @@ const textFinish = document.querySelector("#textFinish");
 const content = document.querySelector(".content");
 const contentFinish = document.querySelector(".finish");
 const btnRestart = document.querySelector("#btn1");
+const btnHelp1 = document.querySelector("#helpButton1");
+const btnHelp2 = document.querySelector("#helpButton2");
+const btnHelp3 = document.querySelector("#helpButton3");
+const btnHelp4 = document.querySelector("#helpButton4");
+
+let time = 61; // tempo em segundos
+const timerElement = document.querySelector("#timer"); // substitua "#timer" pelo seletor do seu elemento de tempo
+
+const timer = setInterval(() => {
+  time--;
+  let minutes = Math.floor(time / 60).toString().padStart(2, '0');
+  let seconds = (time % 60).toString().padStart(2, '0');
+  timerElement.textContent = `${minutes}:${seconds}`;
+
+  if (time <= 0) {
+    clearInterval(timer);
+    // Coloque aqui o que você quer que aconteça quando o tempo acabar
+    finish();
+  }
+}, 1000);
 
 import questions from "../questions.js";
 
@@ -48,6 +68,17 @@ btnRestart.onclick = () => {
   usedEasyQuestions = [];
   usedMediumQuestions = [];
   usedHardQuestions = [];
+  btnHelp1.disabled = false;
+  btnHelp1.style.background = "#261201";
+
+  btnHelp2.disabled = false;
+  btnHelp2.style.background = "#261201";
+
+  btnHelp3.disabled = false;
+  btnHelp3.style.background = "#261201";
+
+  btnHelp4.disabled = false;
+  btnHelp4.style.background = "#261201";
   loadQuestion();
 };
 
@@ -60,7 +91,7 @@ function checkAnswer(e) {
   }
 }
 
-function nextQuestion() {
+export function nextQuestion() {
   if (currentIndex < 14) {
     currentIndex++;
     loadQuestion();
@@ -76,7 +107,7 @@ function finish() {
 }
 
 function loadQuestion() {
-  spnQtd.innerHTML = `${currentIndex + 1}/${15}`;
+  spnQtd.innerHTML = `Pergunta ${currentIndex + 1}`;
   let item;
   if (currentIndex < 5){
     let randomIndex = randomizeEasyQuestions();
@@ -95,7 +126,7 @@ function loadQuestion() {
   question.innerHTML = item.question;
 
   item.answers.forEach((answer) => {
-    const div = document.createElement("div");
+    const div = document.createElement("li");
 
     div.innerHTML = `
     <button class="answer" data-correct="${answer.correct}">

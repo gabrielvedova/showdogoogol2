@@ -87,8 +87,9 @@ main {
 
 .button {
   font-size: 10px;
+  color: #D98A29;
+  background-color: #261201;
 }
-
 /*GERAL*/
 
 button {
