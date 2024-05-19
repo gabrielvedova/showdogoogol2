@@ -8,7 +8,7 @@
 }
 
 html {
-  background-image: linear-gradient(#1C2D8C, #000C51);
+  background-image: linear-gradient(#1C2D8C, #00093a);
   height: 100vh;
 }
 
@@ -43,7 +43,12 @@ main {
 
 /*DIV QUESTION E TUDO DENTRO*/
 
+li {
+  list-style: none;
+}
+
 .content {
+  margin-left: 30px;
   display: flex;
   flex-direction: column;
   width: 70%;
@@ -75,8 +80,10 @@ main {
   align-items: end;
 }
 
-.timer {
+#timer {
   font-size: 45px;
+  text-align: center;
+  width: 55%;
 }
 
 #boost {
@@ -86,22 +93,28 @@ main {
 }
 
 .button {
-  font-size: 10px;
+  font-size: 20px;
   color: #D98A29;
   background-color: #261201;
+  padding: 15px;
+  width: 75%;
+  align-items: center;
+  border: none;
+  border-radius: 10px;
 }
 /*GERAL*/
 
-button {
+.answers button {
   width: 70%;
-  text-align: start;
-  padding: 15px;
+  height: 80px;
   border: none;
-  border-radius: 10px;
+  border-radius: 20px;
   cursor: pointer;
   background-color: #D98A29;
   color: black;
   font-size: 40px;
+  text-align: center;
+  padding: 0px, 10px, 0px, 10px;
 }
 
 .finish {
@@ -118,6 +131,13 @@ button {
 .finish button {
   text-align: center;
   padding: 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: #D98A29;
+  color: black;
+  font-size: 25px;
+  width: 100%;
 }
 
 footer {

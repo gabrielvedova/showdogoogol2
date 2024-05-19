@@ -6,7 +6,7 @@
 - Créditos ✅
 - Sobre✅
 
-OBS: PRECISO DO BACK
-- NomeUsuário +-
-- Perguntas
+- Perguntas +- (Falta banco de dados das perguntas e a fórmula do score)
+- Game Over (Melhorar aí pai)
+- NomeUsuário
 - Placar

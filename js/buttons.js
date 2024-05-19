@@ -29,8 +29,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
     for (var i = 0; i < alternativasIncorretas.length / 2; i++) {
       alternativasIncorretas[i].style.background = "#d98a2946";
+      alternativasIncorretas[i].disabled = true;
     }
-
+    
     // Desabilita o botão após ser clicado
     this.disabled = true;
     this.style.background = "#d98a2946";

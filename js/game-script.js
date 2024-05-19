@@ -3,29 +3,37 @@ const answers = document.querySelector(".answers");
 const spnQtd = document.querySelector(".spnQtd");
 const textFinish = document.querySelector("#textFinish");
 const content = document.querySelector(".content");
+const content2 = document.querySelector(".content2");
 const contentFinish = document.querySelector(".finish");
 const btnRestart = document.querySelector("#btn1");
 const btnHelp1 = document.querySelector("#helpButton1");
 const btnHelp2 = document.querySelector("#helpButton2");
 const btnHelp3 = document.querySelector("#helpButton3");
 const btnHelp4 = document.querySelector("#helpButton4");
+const msgFinish = document.querySelector("#msgFinish");
 
-let time = 61; // tempo em segundos
-const timerElement = document.querySelector("#timer"); // substitua "#timer" pelo seletor do seu elemento de tempo
+let timer;
 
-const timer = setInterval(() => {
-  time--;
-  let minutes = Math.floor(time / 60).toString().padStart(2, '0');
-  let seconds = (time % 60).toString().padStart(2, '0');
-  timerElement.textContent = `${minutes}:${seconds}`;
+function startTimer() {
 
-  if (time <= 0) {
-    clearInterval(timer);
-    // Coloque aqui o que você quer que aconteça quando o tempo acabar
-    finish();
-  }
-}, 1000);
+  let time = 61; // tempo em segundos
+  const timerElement = document.querySelector("#timer"); // substitua "#timer" pelo seletor do seu elemento de tempo
 
+  timer = setInterval(() => {
+    time--;
+    let minutes = Math.floor(time / 60).toString().padStart(2, '0');
+    let seconds = (time % 60).toString().padStart(2, '0');
+    timerElement.textContent = `${minutes}:${seconds}`;
+
+    if (time <= 0) {
+      clearInterval(timer);
+      // Coloque aqui o que você quer que aconteça quando o tempo acabar
+      finish();
+    }
+  }, 1000);
+};
+
+startTimer();
 import questions from "../questions.js";
 
 const questionsArray = questions
@@ -61,6 +69,7 @@ console.log(hardQuestions)
 
 btnRestart.onclick = () => {
   content.style.display = "flex";
+  content2.style.display = "flex";
   contentFinish.style.display = "none";
 
   currentIndex = 0;
@@ -95,14 +104,19 @@ export function nextQuestion() {
   if (currentIndex < 14) {
     currentIndex++;
     loadQuestion();
+    // Reinicia o temporizador
+    clearInterval(timer); // para o temporizador atual
+    startTimer(); // inicia um novo temporizador
   } else {
     finish();
   }
 }
 
+let Score;
 function finish() {
-  textFinish.innerHTML = `Você acertou ${questionsCorrect} de ${15}`;
+  textFinish.innerHTML = `Score: ${Score}`;
   content.style.display = "none";
+  content2.style.display = "none";
   contentFinish.style.display = "flex";
 }
 
@@ -140,6 +154,10 @@ function loadQuestion() {
   document.querySelectorAll(".answer").forEach((item) => {
     item.addEventListener("click", checkAnswer);
   });
+  
+  // Reinicia o temporizador
+  clearInterval(timer); // para o temporizador atual
+  startTimer(); // inicia um novo temporizador
 }
 
 function randomize(interval) {
@@ -174,4 +192,5 @@ function randomizeHardQuestions() {
   }
 }
 
+// GAME OVER
 loadQuestion();
