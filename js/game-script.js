@@ -1,4 +1,4 @@
-﻿const question = document.querySelector(".question");
+const question = document.querySelector(".question");
 const answers = document.querySelector(".answers");
 const spnQtd = document.querySelector(".spnQtd");
 const textFinish = document.querySelector("#textFinish");
@@ -6,10 +6,6 @@ const content = document.querySelector(".content");
 const content2 = document.querySelector(".content2");
 const contentFinish = document.querySelector(".finish");
 const btnRestart = document.querySelector("#btn1");
-const btnHelp1 = document.querySelector("#helpButton1");
-const btnHelp2 = document.querySelector("#helpButton2");
-const btnHelp3 = document.querySelector("#helpButton3");
-const btnHelp4 = document.querySelector("#helpButton4");
 const msgFinish = document.querySelector("#msgFinish");
 
 let timer;
@@ -67,7 +63,7 @@ console.log(easyQuestions)
 console.log(mediumQuestions)
 console.log(hardQuestions)
 
-btnRestart.onclick = () => {
+/*btnRestart.onclick = () => {
   content.style.display = "flex";
   content2.style.display = "flex";
   contentFinish.style.display = "none";
@@ -89,7 +85,7 @@ btnRestart.onclick = () => {
   btnHelp4.disabled = false;
   btnHelp4.style.background = "#261201";
   loadQuestion();
-};
+};*/
 
 function checkAnswer(e) {
   if (e.target.getAttribute("data-correct") === "true") {
@@ -114,6 +110,12 @@ export function nextQuestion() {
 
 let Score;
 function finish() {
+  if (questionsCorrect >= 14) {
+    msgFinish.innerText = "GAME WIN!";
+  } else {
+    msgFinish.innerText = "GAME OVER!";
+  }
+
   textFinish.innerHTML = `Score: ${Score}`;
   content.style.display = "none";
   content2.style.display = "none";
@@ -123,11 +125,11 @@ function finish() {
 function loadQuestion() {
   spnQtd.innerHTML = `Pergunta ${currentIndex + 1}`;
   let item;
-  if (currentIndex < 5){
+  if (currentIndex < 5) {
     let randomIndex = randomizeEasyQuestions();
     item = easyQuestions[randomIndex];
     usedEasyQuestions.push(randomIndex);
-  } else if (currentIndex < 10){
+  } else if (currentIndex < 10) {
     let randomIndex = randomizeMediumQuestions();
     item = mediumQuestions[randomIndex];
     usedMediumQuestions.push(randomIndex);
@@ -154,43 +156,44 @@ function loadQuestion() {
   document.querySelectorAll(".answer").forEach((item) => {
     item.addEventListener("click", checkAnswer);
   });
-  
+
   // Reinicia o temporizador
   clearInterval(timer); // para o temporizador atual
   startTimer(); // inicia um novo temporizador
 }
 
 function randomize(interval) {
-  let randomIndex = Math.floor(Math.random()*interval)
+  let randomIndex = Math.floor(Math.random() * interval)
   return randomIndex;
 }
 
 function randomizeEasyQuestions() {
-  while (true){
+  while (true) {
     let randomIndex = randomize(easyQuestions.length);
-    if (usedEasyQuestions.indexOf(randomIndex) == -1){
+    if (usedEasyQuestions.indexOf(randomIndex) == -1) {
       return randomIndex;
     }
   }
 }
 
 function randomizeMediumQuestions() {
-  while (true){
+  while (true) {
     let randomIndex = randomize(mediumQuestions.length);
-    if (usedMediumQuestions.indexOf(randomIndex) == -1){
+    if (usedMediumQuestions.indexOf(randomIndex) == -1) {
       return randomIndex;
     }
   }
 }
 
 function randomizeHardQuestions() {
-  while (true){
+  while (true) {
     let randomIndex = randomize(hardQuestions.length);
-    if (usedHardQuestions.indexOf(randomIndex) == -1){
+    if (usedHardQuestions.indexOf(randomIndex) == -1) {
       return randomIndex;
     }
   }
 }
 
 // GAME OVER
+
 loadQuestion();
