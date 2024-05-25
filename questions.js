@@ -163,7 +163,7 @@
     {
       question: "Quantos lados tem um hexágono?",
       answers: [
-        { option: "7", correct: true },
+        { option: "7", correct: false },
         { option: "10", correct: false },
         { option: "6", correct: true },
         { option: "5", correct: false },

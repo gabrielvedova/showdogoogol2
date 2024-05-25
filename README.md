@@ -5,8 +5,8 @@
 - Tela Inicial✅
 - Créditos ✅
 - Sobre✅
+- Game Over✅
+- NomeUsuário✅
 
-- Perguntas +- (Falta banco de dados das perguntas e a fórmula do score)
-- Game Over (Melhorar aí pai)
-- NomeUsuário
+- Perguntas +- (Falta banco de dados das perguntas)
 - Placar

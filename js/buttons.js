@@ -1,4 +1,9 @@
-import { nextQuestion } from './game-script.js';
+import { nextQuestion, setUsedHelp, getUsedHelp } from './game-script.js';
+
+function usedBoost() {
+  setUsedHelp(true);
+}
+
 // Half Button
 
 function embaralhar(array) {
@@ -35,6 +40,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // Desabilita o botão após ser clicado
     this.disabled = true;
     this.style.background = "#d98a2946";
+    usedBoost();
   });
 
   // Pular Button
@@ -43,12 +49,14 @@ document.addEventListener("DOMContentLoaded", function() {
     // Desabilita o botão após ser clicado
     this.disabled = true;
     this.style.background = "#d98a2946";
+    usedBoost();
   });
 
   document.getElementById("helpButton3").addEventListener("click", function() {
     // Desabilita o botão após ser clicado
     this.disabled = true;
     this.style.background = "#d98a2946";
+    usedBoost();
     nextQuestion();
   });
 
@@ -56,5 +64,6 @@ document.addEventListener("DOMContentLoaded", function() {
     // Desabilita o botão após ser clicado
     this.disabled = true;
     this.style.background = "#d98a2946";
+    usedBoost();
   });
 });

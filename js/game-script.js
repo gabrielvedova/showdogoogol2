@@ -9,14 +9,17 @@ const btnRestart = document.querySelector("#btn1");
 const msgFinish = document.querySelector("#msgFinish");
 
 let timer;
+let time;
+let totalTime = 0;
 
 function startTimer() {
 
-  let time = 61; // tempo em segundos
+  time = 60; // tempo em segundos
   const timerElement = document.querySelector("#timer"); // substitua "#timer" pelo seletor do seu elemento de tempo
 
   timer = setInterval(() => {
     time--;
+    totalTime++;
     let minutes = Math.floor(time / 60).toString().padStart(2, '0');
     let seconds = (time % 60).toString().padStart(2, '0');
     timerElement.textContent = `${minutes}:${seconds}`;
@@ -63,52 +66,55 @@ console.log(easyQuestions)
 console.log(mediumQuestions)
 console.log(hardQuestions)
 
-/*btnRestart.onclick = () => {
-  content.style.display = "flex";
-  content2.style.display = "flex";
-  contentFinish.style.display = "none";
-
-  currentIndex = 0;
-  questionsCorrect = 0;
-  usedEasyQuestions = [];
-  usedMediumQuestions = [];
-  usedHardQuestions = [];
-  btnHelp1.disabled = false;
-  btnHelp1.style.background = "#261201";
-
-  btnHelp2.disabled = false;
-  btnHelp2.style.background = "#261201";
-
-  btnHelp3.disabled = false;
-  btnHelp3.style.background = "#261201";
-
-  btnHelp4.disabled = false;
-  btnHelp4.style.background = "#261201";
-  loadQuestion();
-};*/
-
 function checkAnswer(e) {
   if (e.target.getAttribute("data-correct") === "true") {
     questionsCorrect++;
-    nextQuestion()
+    nextQuestion();
   } else {
     finish()
   }
 }
 
+let Score = 0;
+let pontuacao = 0;
+
+let usedHelp = false;
+
+export function setUsedHelp(value) {
+  usedHelp = value;
+}
+
 export function nextQuestion() {
+
   if (currentIndex < 14) {
+    
+    if (questionsCorrect <= 5) {
+      pontuacao += questionsCorrect * 10000;
+    } else if (questionsCorrect <= 10) {
+      pontuacao += questionsCorrect * 30000;
+    } else {
+      pontuacao += questionsCorrect * 50000;
+    }
+
+    if (usedHelp) {
+      pontuacao = Math.floor(pontuacao / 2);
+    }
+
+    Score += Math.floor(pontuacao*(60 - time)/(60-1));
+    
     currentIndex++;
     loadQuestion();
+
     // Reinicia o temporizador
     clearInterval(timer); // para o temporizador atual
     startTimer(); // inicia um novo temporizador
   } else {
     finish();
-  }
+  };
+
+  usedHelp = false;
 }
 
-let Score;
 function finish() {
   if (questionsCorrect >= 14) {
     msgFinish.innerText = "GAME WIN!";
@@ -194,6 +200,6 @@ function randomizeHardQuestions() {
   }
 }
 
-// GAME OVER
+export { Score };
 
 loadQuestion();
