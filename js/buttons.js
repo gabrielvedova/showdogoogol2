@@ -1,4 +1,4 @@
-import { nextQuestion, setUsedHelp, getUsedHelp } from './game-script.js';
+import { nextQuestion, setUsedHelp } from './game-script.js';
 
 function usedBoost() {
   setUsedHelp(true);

@@ -1,0 +1,56 @@
+﻿.mainRanking h1 {
+    font-size: 60px;
+    margin-right: 80px;
+}
+
+.mainRanking {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white ;
+}
+
+table.ranking {
+    width: 60%;
+    border-collapse: separate;
+}
+
+table.ranking tr {
+    background-color: transparent;
+}
+
+table.ranking td {
+    border-radius: 45px;
+    text-align: center;
+    font-size: 45px;
+
+}
+
+table.ranking div {
+    margin: 20px 70px;
+}
+
+table.ranking div.position {
+    padding: 5px;
+    width: 90px;
+    background-color: #324095;
+    border-radius: 45px;
+    align-items: center;
+}
+
+table.ranking div.name {
+    padding: 5px;
+    width: 400px;
+    background-color: #000a41;
+    border-radius: 45px;
+    align-items: center;
+}
+
+table.ranking div.points {
+    padding: 5px;
+    width: 200px;
+    background-color: #324095;
+    border-radius: 45px;
+    align-items: center;
+}

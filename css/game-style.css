@@ -14,6 +14,8 @@ html {
 
 body {
   height: 96.8vh;
+  background-image: url('../img/fundoTelaInicial/fundoGOpaco.png');
+  background-repeat: no-repeat;
 }
 
 #span1 {
@@ -58,15 +60,12 @@ li {
   text-align: center;
   font-size: 32px;
   color: #D98A29;
-  -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: #261201;
+
 }
 
 .question {
   font-size: 45px;
   color: #D98A29;
-  -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: #261201;
   text-align: center;
 }
 
@@ -194,4 +193,14 @@ footer {
   border-right-color: transparent;
   border-bottom-color: white;
   color: white;
+}
+
+
+/* RANKING */
+
+.mainRanking {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
 }

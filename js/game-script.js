@@ -10,7 +10,6 @@ const msgFinish = document.querySelector("#msgFinish");
 
 let timer;
 let time;
-let totalTime = 0;
 
 function startTimer() {
 
@@ -19,18 +18,21 @@ function startTimer() {
 
   timer = setInterval(() => {
     time--;
-    totalTime++;
     let minutes = Math.floor(time / 60).toString().padStart(2, '0');
     let seconds = (time % 60).toString().padStart(2, '0');
     timerElement.textContent = `${minutes}:${seconds}`;
 
     if (time <= 0) {
-      clearInterval(timer);
+      stopTime();
       // Coloque aqui o que você quer que aconteça quando o tempo acabar
       finish();
     }
   }, 1000);
 };
+
+function stopTime() {
+  clearInterval(timer);
+}
 
 startTimer();
 import questions from "../questions.js";
@@ -200,6 +202,6 @@ function randomizeHardQuestions() {
   }
 }
 
-export { Score };
+export { Score, stopTime };
 
 loadQuestion();
