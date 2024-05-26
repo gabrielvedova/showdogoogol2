@@ -35,9 +35,9 @@ function stopTime() {
 }
 
 startTimer();
-import questions from "../questions.js";
 
-const questionsArray = questions
+
+let questionsArray = [];
 
 let currentIndex = 0;
 let questionsCorrect = 0;
@@ -45,28 +45,51 @@ let questionsCorrect = 0;
 let usedEasyQuestions = [];
 let usedMediumQuestions = [];
 let usedHardQuestions = [];
+let usedGoogolQuestions = [];
 
 const easyQuestions = [];
 const mediumQuestions = [];
 const hardQuestions = [];
+const googolQuestions = [];
 
-questionsArray.forEach((item) => {
-  switch (item.level) {
-    case "easy":
-      easyQuestions.push(item);
-      break;
-    case "medium":
-      mediumQuestions.push(item);
-      break;
-    case "hard":
-      hardQuestions.push(item);
-      break;
-  };
-})
+fetch("https://api-sdg2.onrender.com/questions")
+  .then(response => response.json())
+  .then(responseData => {
+    const data = responseData.data.questions;
+
+    questionsArray = data;
+
+    questionsArray.forEach((item) => {
+      switch (item.level) {
+        case 1:
+          easyQuestions.push(item);
+          break;
+        case 2:
+          mediumQuestions.push(item);
+          break;
+        case 3:
+          hardQuestions.push(item);
+          break;
+        case 4:
+          googolQuestions.push(item);
+          break;
+      };
+    })
+
+    console.log(easyQuestions)
+    console.log(mediumQuestions)
+    console.log(hardQuestions)
+    console.log(googolQuestions)
+
+    // Agora que temos as perguntas, podemos carregar a primeira
+    loadQuestion();
+  })
+  .catch(error => console.error('Erro ao buscar perguntas:', error));
 
 console.log(easyQuestions)
 console.log(mediumQuestions)
 console.log(hardQuestions)
+console.log(googolQuestions)
 
 function checkAnswer(e) {
   if (e.target.getAttribute("data-correct") === "true") {
@@ -89,7 +112,7 @@ export function setUsedHelp(value) {
 export function nextQuestion() {
 
   if (currentIndex < 14) {
-    
+
     if (questionsCorrect <= 5) {
       pontuacao += questionsCorrect * 10000;
     } else if (questionsCorrect <= 10) {
@@ -102,8 +125,8 @@ export function nextQuestion() {
       pontuacao = Math.floor(pontuacao / 2);
     }
 
-    Score += Math.floor(pontuacao*(60 - time)/(60-1));
-    
+    Score += Math.floor(pontuacao * (60 - time) / (60 - 1));
+
     currentIndex++;
     loadQuestion();
 
@@ -132,31 +155,49 @@ function finish() {
 
 function loadQuestion() {
   spnQtd.innerHTML = `Pergunta ${currentIndex + 1}`;
+
   let item;
-  if (currentIndex < 5) {
+  if (currentIndex < 4) { // 4
     let randomIndex = randomizeEasyQuestions();
+    while (usedEasyQuestions.includes(randomIndex)) {
+      randomIndex = randomizeEasyQuestions();
+    }
     item = easyQuestions[randomIndex];
     usedEasyQuestions.push(randomIndex);
-  } else if (currentIndex < 10) {
+  } else if (currentIndex < 9) { // 5
     let randomIndex = randomizeMediumQuestions();
+    while (usedMediumQuestions.includes(randomIndex)) {
+      randomIndex = randomizeMediumQuestions();
+    }
     item = mediumQuestions[randomIndex];
     usedMediumQuestions.push(randomIndex);
-  } else {
+  } else if (currentIndex < 14) { // 5
     let randomIndex = randomizeHardQuestions();
+    while (usedHardQuestions.includes(randomIndex)) {
+      randomIndex = randomizeHardQuestions();
+    }
     item = hardQuestions[randomIndex];
     usedHardQuestions.push(randomIndex);
+  } else { // 1
+    let randomIndex = randomizeGoogolQuestions();
+    while (usedGoogolQuestions.includes(randomIndex)) {
+      randomIndex = randomizeGoogolQuestions();
+    }
+    item = googolQuestions[randomIndex];
+    usedGoogolQuestions.push(randomIndex);
   }
+
   answers.innerHTML = "";
-  question.innerHTML = item.question;
+  question.innerHTML = item.title;
 
   item.answers.forEach((answer) => {
     const div = document.createElement("li");
 
     div.innerHTML = `
-    <button class="answer" data-correct="${answer.correct}">
-      ${answer.option}
-    </button>
-    `;
+        <button class="answer" data-correct="${answer.correct}">
+          ${answer.content}
+        </button>
+        `;
 
     answers.appendChild(div);
   });
@@ -197,6 +238,15 @@ function randomizeHardQuestions() {
   while (true) {
     let randomIndex = randomize(hardQuestions.length);
     if (usedHardQuestions.indexOf(randomIndex) == -1) {
+      return randomIndex;
+    }
+  }
+}
+
+function randomizeGoogolQuestions() {
+  while (true) {
+    let randomIndex = randomize(googolQuestions.length);
+    if (usedGoogolQuestions.indexOf(randomIndex) == -1) {
       return randomIndex;
     }
   }

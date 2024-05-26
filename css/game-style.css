@@ -72,7 +72,7 @@ li {
 .answers {
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 35px;
   text-align: center;
 }
 
@@ -128,8 +128,8 @@ li {
 /*GERAL*/
 
 .answers button {
-  width: 70%;
-  height: 80px;
+  width: 75%;
+  height: 120px;
   border: none;
   border-radius: 20px;
   cursor: pointer;
