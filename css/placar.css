@@ -6,6 +6,7 @@
 .mainRanking {
     display: none;
     flex-direction: column;
+    height: 97.6vh;
     justify-content: center;
     align-items: center;
     color: white ;
@@ -34,7 +35,7 @@ table.ranking div {
 table.ranking div.gradeAndClass {
     padding: 5px;
     width: 90px;
-    background-color: #324095;
+    background-color: #000a41;
     border-radius: 45px;
     align-items: center;
 }
@@ -53,4 +54,24 @@ table.ranking div.score {
     background-color: #324095;
     border-radius: 45px;
     align-items: center;
+}
+
+table.ranking div.position {
+    padding: 5px;
+    width: 90px;
+    background-color: #324095;
+    border-radius: 45px;
+    align-items: center;
+}
+
+
+.mainRanking button {
+    margin-top: 50px;
+    padding: 10px 20px;
+    font-size: 30px;
+    background-color: #324095;
+    border-radius: 45px;
+    color: white;
+    border: none;
+    cursor: pointer;
 }

@@ -6,7 +6,6 @@ const contentFinish = document.querySelector('.finish');
 const mainRanking = document.querySelector('.mainRanking');
 
 btnRegistrar.addEventListener('click', () => {
-  stopTime();
 
   contentFinish.style.display = 'none';
   mainRanking.style.display = 'flex';
@@ -14,8 +13,6 @@ btnRegistrar.addEventListener('click', () => {
 });
 
 export function loadUser() {
-  // ranking.js
-
   fetch('../rankingDados.json')
     .then(response => response.json())
     .then(data => {
@@ -31,7 +28,7 @@ export function loadUser() {
         const row = document.createElement('tr');
         row.innerHTML = `
           <td>
-            <div class="gradeAndClass" >${index + 1}</div>
+            <div class="position" >${index + 1}</div>
           </td>
           <td>
             <div class="name" >${user.name}</div>
@@ -47,4 +44,11 @@ export function loadUser() {
       });
     })
     .catch(error => console.error('Error fetching ranking data:', error));
+    stopTime();
+}
+
+export function saveUser() {
+  fetch('../rankingDados.json')
+    .then(response => response.json())
+    .then(data => {})
 }

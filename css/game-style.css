@@ -195,6 +195,25 @@ footer {
   color: white;
 }
 
+/* FINISH */
+
+#SelectionClass {
+  background-color: transparent;
+  border-top-color: transparent;
+  border-left-color: transparent;
+  border-right-color: transparent;
+  width: 80%;
+  padding: 10px;
+  outline: none;
+  font-size: 27px;
+  border-style: solid;
+  border-top-color: transparent;
+  border-left-color: transparent;
+  border-right-color: transparent;
+  border-bottom-color: white;
+  color: white;
+
+}
 
 /* RANKING */
 

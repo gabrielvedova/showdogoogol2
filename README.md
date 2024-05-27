@@ -7,10 +7,9 @@
 ### Sobre✅
 ### Game Over✅
 ### NomeUsuário✅
+### Perguntas ✅
 
-### Perguntas +- 
-    -- Falta banco de dados das perguntas
-    -- Já fiz a estrutura, só falta testar pra vê se tá funcionando tudo certo
 ### Placar
     -- fiz a estrutura baseado em json localmente, mas só fiz pra ler os usuários salvos
+    -- loadUser funcionando✅
     -- falta add o novo user no arquivo json
