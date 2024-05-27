@@ -10,21 +10,29 @@ btnRegistrar.addEventListener('click', () => {
 
   contentFinish.style.display = 'none';
   mainRanking.style.display = 'flex';
-  console.log('Que porra é essa?');
   loadUser();
 });
 
-function loadUser() {
+export function loadUser() {
   // ranking.js
 
   fetch('../rankingDados.json')
     .then(response => response.json())
     .then(data => {
+      // Ordena os usuários por pontuação em ordem decrescente
+      const sortedData = data.sort((a, b) => b.score - a.score);
+
+      // Pega os primeiros 5 usuários
+      const topUsers = sortedData.slice(0, 5);
+
       const rankingTable = document.querySelector('.ranking');
 
-      data.forEach(user => {
+      topUsers.forEach((user, index) => {
         const row = document.createElement('tr');
         row.innerHTML = `
+          <td>
+            <div class="gradeAndClass" >${index + 1}</div>
+          </td>
           <td>
             <div class="name" >${user.name}</div>
           </td>
