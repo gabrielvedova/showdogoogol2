@@ -1,43 +1,53 @@
 ﻿[
     {
         "name": "OxeMano",
-        "pontos": 12345
+        "score": 12345,
+        "gradeAndClass": "1A"
     },
     {
         "name": "Bicho",
-        "pontos": 129882
+        "score": 129882,
+        "gradeAndClass": "2A"
     },
     {
         "name": "ManoSla",
-        "pontos": 82930
+        "score": 82930,
+        "gradeAndClass": "3A"
     },
     {
         "name": "ManoRight",
-        "pontos": 158553
+        "score": 158553,
+        "gradeAndClass": "2B"
     },
     {
         "name": "ManoLeft",
-        "pontos": 9823
+        "score": 9823,
+        "gradeAndClass": "1B"
     },
     {
         "name": "Merlin",
-        "pontos": 321553
+        "score": 321553,
+        "gradeAndClass": "2C"
     },
     {
         "name": "ManoTop",
-        "pontos": 729384
+        "score": 729384,
+        "gradeAndClass": "3B"
     },
     {
         "name": "ManoBrown",
-        "pontos": 102937
+        "score": 102937,
+        "gradAndClass": "1C"
     },
     {
         "name": "Emerson",
-        "pontos": 123521
+        "score": 123521,
+        "gradeAndClass": "2A"
     },
     {
         "name": "CDT",
-        "pontos": 14353
+        "score": 14353,
+        "gradeAndClass": "2A"
     }
 
 ]

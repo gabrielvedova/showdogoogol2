@@ -31,7 +31,7 @@ table.ranking div {
     margin: 20px 70px;
 }
 
-table.ranking div.position {
+table.ranking div.gradeAndClass {
     padding: 5px;
     width: 90px;
     background-color: #324095;
@@ -47,7 +47,7 @@ table.ranking div.name {
     align-items: center;
 }
 
-table.ranking div.points {
+table.ranking div.score {
     padding: 5px;
     width: 200px;
     background-color: #324095;

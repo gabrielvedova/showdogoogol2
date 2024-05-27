@@ -8,12 +8,14 @@ const contentFinish = document.querySelector(".finish");
 const btnRestart = document.querySelector("#btn1");
 const msgFinish = document.querySelector("#msgFinish");
 
+import { usedHelp } from './buttons.js';
+
 let timer;
 let time;
 
 function startTimer() {
 
-  time = 60; // tempo em segundos
+  time = 120; // tempo em segundos
   const timerElement = document.querySelector("#timer"); // substitua "#timer" pelo seletor do seu elemento de tempo
 
   timer = setInterval(() => {
@@ -81,15 +83,17 @@ fetch("https://api-sdg2.onrender.com/questions")
     console.log(hardQuestions)
     console.log(googolQuestions)
 
+    console.log(easyQuestions)
+    console.log(mediumQuestions)
+    console.log(hardQuestions)
+    console.log(googolQuestions)
+
     // Agora que temos as perguntas, podemos carregar a primeira
     loadQuestion();
   })
   .catch(error => console.error('Erro ao buscar perguntas:', error));
 
-console.log(easyQuestions)
-console.log(mediumQuestions)
-console.log(hardQuestions)
-console.log(googolQuestions)
+
 
 function checkAnswer(e) {
   if (e.target.getAttribute("data-correct") === "true") {
@@ -103,13 +107,7 @@ function checkAnswer(e) {
 let Score = 0;
 let pontuacao = 0;
 
-let usedHelp = false;
-
-export function setUsedHelp(value) {
-  usedHelp = value;
-}
-
-export function nextQuestion() {
+function nextQuestion() {
 
   if (currentIndex < 14) {
 
@@ -125,7 +123,7 @@ export function nextQuestion() {
       pontuacao = Math.floor(pontuacao / 2);
     }
 
-    Score += Math.floor(pontuacao * (60 - time) / (60 - 1));
+    Score += Math.floor(pontuacao * (120 - time) / (120 - 1));
 
     currentIndex++;
     loadQuestion();
@@ -252,6 +250,4 @@ function randomizeGoogolQuestions() {
   }
 }
 
-export { Score, stopTime };
-
-loadQuestion();
+export { Score, stopTime, nextQuestion };

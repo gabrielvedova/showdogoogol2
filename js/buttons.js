@@ -1,4 +1,10 @@
-import { nextQuestion, setUsedHelp } from './game-script.js';
+import { nextQuestion } from './game-script.js';
+
+let usedHelp = false;
+
+function setUsedHelp(value) {
+  usedHelp = value;
+}
 
 function usedBoost() {
   setUsedHelp(true);
@@ -33,13 +39,15 @@ document.addEventListener("DOMContentLoaded", function() {
     embaralhar(alternativasIncorretas);
 
     for (var i = 0; i < alternativasIncorretas.length / 2; i++) {
-      alternativasIncorretas[i].style.background = "#d98a2946";
+      alternativasIncorretas[i].style.background = "transparent";
+      alternativasIncorretas[i].style.color = "transparent";
+      alternativasIncorretas[i].style.cursor = "none";
       alternativasIncorretas[i].disabled = true;
     }
-    
+
     // Desabilita o botão após ser clicado
     this.disabled = true;
-    this.style.background = "#d98a2946";
+    this.style.background = "#3b426b";
     usedBoost();
   });
 
@@ -48,14 +56,14 @@ document.addEventListener("DOMContentLoaded", function() {
   document.getElementById("helpButton2").addEventListener("click", function() {
     // Desabilita o botão após ser clicado
     this.disabled = true;
-    this.style.background = "#d98a2946";
+    this.style.background = "#3b426b";
     usedBoost();
   });
 
   document.getElementById("helpButton3").addEventListener("click", function() {
     // Desabilita o botão após ser clicado
     this.disabled = true;
-    this.style.background = "#d98a2946";
+    this.style.background = "#3b426b";
     usedBoost();
     nextQuestion();
   });
@@ -63,7 +71,9 @@ document.addEventListener("DOMContentLoaded", function() {
   document.getElementById("helpButton4").addEventListener("click", function() {
     // Desabilita o botão após ser clicado
     this.disabled = true;
-    this.style.background = "#d98a2946";
+    this.style.background = "#3b426b";
     usedBoost();
   });
 });
+
+export { usedHelp };

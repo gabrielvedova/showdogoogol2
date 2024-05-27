@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Show do Googol</title>
+  <style>
+    body {
+      background-color: #00093a;
+      color: white;
+      font-family: 'Roboto', sans-serif;
+      font-size: 20px;
+      margin: 0;
+      padding: 0;
+    }
+
+    .carregando {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      width: 100%;
+      height: 100vh;
+    }
+
+    .erro {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      width: 100%;
+      height: 100vh;
+    }
+
+    .erro button {
+      background-color: #1b2c8d;
+      color: white;
+      font-size: 25px;
+      width: 440px;
+      border: none;
+      border-radius: 45px;
+      cursor: pointer;
+      padding: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="carregando">
+    <h1>CARREGANDO...</h1>
+  </div>
+  <div class="erro">
+    <h1>TENTE NOVAMENTE...</h1>
+    <button onclick="window.location.replace('./index.html')">Voltar a Tela Inicial</button>
+  </div>
+  <script src="../js/fetchPing.js" type="module"></script>
+</body>
+
+</html>
