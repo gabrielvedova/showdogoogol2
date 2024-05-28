@@ -1,6 +1,5 @@
-﻿.mainRanking h1 {
-    font-size: 60px;
-    margin-right: 80px;
+.mainRanking h1 {
+    font-size: 40px;
 }
 
 .mainRanking {
@@ -9,7 +8,7 @@
     height: 97.6vh;
     justify-content: center;
     align-items: center;
-    color: white ;
+    color: white;
 }
 
 table.ranking {
@@ -24,41 +23,42 @@ table.ranking tr {
 table.ranking td {
     border-radius: 45px;
     text-align: center;
-    font-size: 45px;
+    font-size: 25px;
 
 }
 
 table.ranking div {
-    margin: 20px 70px;
+    margin: 10px 70px;
 }
 
 table.ranking div.gradeAndClass {
-    padding: 5px;
-    width: 90px;
+    padding: 10px 20px;
+    width: auto;
     background-color: #000a41;
     border-radius: 45px;
     align-items: center;
 }
 
 table.ranking div.name {
-    padding: 5px;
-    width: 400px;
+    padding: 10px 20px;
+    width: auto;
     background-color: #000a41;
     border-radius: 45px;
     align-items: center;
 }
 
 table.ranking div.score {
-    padding: 5px;
-    width: 200px;
+    padding: 10px 20px;
+    width: auto;
     background-color: #324095;
     border-radius: 45px;
     align-items: center;
 }
 
 table.ranking div.position {
-    padding: 5px;
-    width: 90px;
+    padding: 10px 20px;
+    width: auto;
+    max-width: 200px;
     background-color: #324095;
     border-radius: 45px;
     align-items: center;
@@ -68,7 +68,7 @@ table.ranking div.position {
 .mainRanking button {
     margin-top: 50px;
     padding: 10px 20px;
-    font-size: 30px;
+    font-size: 20px;
     background-color: #324095;
     border-radius: 45px;
     color: white;

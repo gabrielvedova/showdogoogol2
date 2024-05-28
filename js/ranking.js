@@ -1,30 +1,34 @@
 import { Score, stopTime } from './game-script.js';
 
 const nomeUsuario = document.getElementById('NomeUsuario');
+const selectionClass = document.getElementById('SelectionClass');
 const btnRegistrar = document.getElementById('btnRegistrar');
 const contentFinish = document.querySelector('.finish');
 const mainRanking = document.querySelector('.mainRanking');
+
+const userData = {
+  name: nomeUsuario.value,
+  score: Score,
+  gradeAndClass: selectionClass.value
+};
 
 btnRegistrar.addEventListener('click', () => {
 
   contentFinish.style.display = 'none';
   mainRanking.style.display = 'flex';
+  saveUser().then(data => console.log(data))
   loadUser();
 });
 
 export function loadUser() {
-  fetch('../rankingDados.json')
+  fetch('https://api-sdg2.onrender.com/ranking?rangeEnd=5')
     .then(response => response.json())
     .then(data => {
-      // Ordena os usuários por pontuação em ordem decrescente
-      const sortedData = data.sort((a, b) => b.score - a.score);
 
-      // Pega os primeiros 5 usuários
-      const topUsers = sortedData.slice(0, 5);
 
+      const users = data.data;
       const rankingTable = document.querySelector('.ranking');
-
-      topUsers.forEach((user, index) => {
+      users.forEach((user, index) => {
         const row = document.createElement('tr');
         row.innerHTML = `
           <td>
@@ -44,11 +48,20 @@ export function loadUser() {
       });
     })
     .catch(error => console.error('Error fetching ranking data:', error));
-    stopTime();
+  stopTime();
 }
 
 export function saveUser() {
-  fetch('../rankingDados.json')
-    .then(response => response.json())
-    .then(data => {})
+  return fetch('https://api-sdg2.onrender.com/ranking', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(userData),
+  })
+    .then(response => {
+      console.log('User data saved successfully:', response)
+      return response.json();
+    })
+    .catch(error => console.error('Error saving user data:', error));
 }
