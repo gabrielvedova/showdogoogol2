@@ -8,10 +8,10 @@ const contentFinish = document.querySelector(".finish");
 const btnRestart = document.querySelector("#btn1");
 const msgFinish = document.querySelector("#msgFinish");
 
-import { usedHelp } from './buttons.js';
-
 let timer;
 let time;
+
+import { gameStatus } from "./buttons.js";
 
 function startTimer() {
 
@@ -113,17 +113,22 @@ function nextQuestion() {
 
     if (questionsCorrect <= 5) {
       pontuacao += questionsCorrect * 10000;
+
     } else if (questionsCorrect <= 10) {
       pontuacao += questionsCorrect * 30000;
+
     } else {
       pontuacao += questionsCorrect * 50000;
+
     }
 
-    if (usedHelp) {
+    if (gameStatus.usedBoost) {
       pontuacao = Math.floor(pontuacao / 2);
     }
 
     Score += Math.floor(pontuacao * (120 - time) / (120 - 1));
+
+
 
     currentIndex++;
     loadQuestion();
@@ -134,8 +139,9 @@ function nextQuestion() {
   } else {
     finish();
   };
+  
+  gameStatus.usedHelp = false;
 
-  usedHelp = false;
 }
 
 function finish() {

@@ -10,6 +10,11 @@ function usedBoost() {
   setUsedHelp(true);
 }
 
+export const gameStatus = {
+  usedHelp: false,
+  usedBoost: true
+};
+
 // Half Button
 
 function embaralhar(array) {
@@ -75,5 +80,3 @@ document.addEventListener("DOMContentLoaded", function() {
     usedBoost();
   });
 });
-
-export { usedHelp };
