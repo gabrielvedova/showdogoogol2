@@ -41,7 +41,8 @@ table.ranking div.gradeAndClass {
 
 table.ranking div.name {
     padding: 10px 20px;
-    width: auto;
+    width: 10em;
+    height: 2.5em;
     background-color: #000a41;
     border-radius: 45px;
     align-items: center;
