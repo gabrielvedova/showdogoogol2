@@ -38,3 +38,6 @@ Para instalar o projeto, siga os passos abaixo:
     ```
     index.html
     ```
+
+## Observação
+Esta versão ainda não está completa, pois ainda falta a aplicação da responsividade do site, algo que em breve será aplicado.
